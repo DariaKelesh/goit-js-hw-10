@@ -35,10 +35,10 @@ function createList(country) {
     <div>
         <img src="${flags.svg}" alt='${name.common}'>
         <h1>${name.official}</h1>
-        <p>'Capital: ${capital}'</p>
-        <p>'Population: ${population}'</p>
+        <p>Capital: ${capital}</p>
+        <p>Population: ${population}</p>
        
-        <p>'Languages: ${Object.values(languages).join(', ')}'</p>
+        <p>Languages: ${Object.values(languages).join(', ')}</p>
     </div>`;
     countryInfo.innerHTML = markupItem;
   }
