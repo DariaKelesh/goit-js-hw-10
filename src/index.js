@@ -1,14 +1,23 @@
+
 import './css/styles.css';
 import debounce from 'lodash.debounce';
+import { fetchCountries } from './fetchCountries ';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { fetchCountries } from './fetchCountries.js';
-
-fetchCountries();
 
 const DEBOUNCE_DELAY = 300;
-const countryList = document.querySelector(".country-list");
-const countryInfo = document.querySelector(".country-info")  
-const input = document.querySelector("#search-box");
+// const BASE_URL = 'https://restcountries.com/v3.1';
+
+const countryList = document.querySelector('.country-list');
+const inputSearch = document.querySelector('#search-box');
+const countryInfo = document.querySelector('.country-info');
+
+function showError(error) {
+  console.log(error);
+  Notify.failure('Oops, there is no country with that name');
+  countryInfo.innerHTML = '';
+  countryList.innerHTML = '';
+}
+
 
 
 input.addEventListener("input", debounce(handleInput, DEBOUNCE_DELAY));
